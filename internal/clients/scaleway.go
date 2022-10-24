@@ -74,12 +74,13 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 			return ps, errors.Wrap(err, errUnmarshalCredentials)
 		}
 
+		// FIXME we don't want "" instead of nulls.
 		ps.Configuration = map[string]interface{}{
 			"access_key": scalewayCreds["access_key"],
 			"secret_key": scalewayCreds["secret_key"],
-			"project_id": scalewayCreds["project_id"],
-			"region":     scalewayCreds["region"],
-			"zone":       scalewayCreds["zone"],
+			// "project_id": scalewayCreds["project_id"],
+			// "region": scalewayCreds["region"],
+			// "zone":   scalewayCreds["zone"],
 		}
 
 		return ps, nil

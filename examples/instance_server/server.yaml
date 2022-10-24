@@ -5,5 +5,8 @@ metadata:
 spec:
   forProvider:
     type: DEV1-S
+    projectId: YOUR_PROJECT_ID
+    image: ubuntu_jammy
+    zone: fr-par-1
   providerConfigRef:
     name: default
