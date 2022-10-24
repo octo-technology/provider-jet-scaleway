@@ -1,0 +1,9 @@
+apiVersion: instance.scaleway.jet.crossplane.io/v1alpha1
+kind: Server
+metadata:
+  name: example
+spec:
+  forProvider:
+    type: DEV1-S
+  providerConfigRef:
+    name: default
