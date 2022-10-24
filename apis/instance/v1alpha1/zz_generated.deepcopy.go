@@ -312,6 +312,11 @@ func (in *ServerParameters) DeepCopyInto(out *ServerParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.Name != nil {
+		in, out := &in.Name, &out.Name
+		*out = new(string)
+		**out = **in
+	}
 	if in.PlacementGroupID != nil {
 		in, out := &in.PlacementGroupID, &out.PlacementGroupID
 		*out = new(string)

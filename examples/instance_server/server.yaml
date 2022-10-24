@@ -4,6 +4,7 @@ metadata:
   name: example
 spec:
   forProvider:
+    name: my instance
     type: DEV1-S
     projectId: YOUR_PROJECT_ID
     image: ubuntu_jammy

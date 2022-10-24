@@ -90,6 +90,9 @@ spec:
                   ipId:
                     description: The ID of the reserved IP for the server
                     type: string
+                  name:
+                    description: The name of the server
+                    type: string
                   placementGroupId:
                     description: The placement group the server is attached to
                     type: string
