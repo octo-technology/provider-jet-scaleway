@@ -21,7 +21,7 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/controller"
 
-	resource "github.com/crossplane-contrib/provider-jet-scaleway/internal/controller/null/resource"
+	server "github.com/crossplane-contrib/provider-jet-scaleway/internal/controller/instance/server"
 	providerconfig "github.com/crossplane-contrib/provider-jet-scaleway/internal/controller/providerconfig"
 )
 
@@ -29,7 +29,7 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		resource.Setup,
+		server.Setup,
 		providerconfig.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
