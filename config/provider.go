@@ -20,9 +20,9 @@ import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
 
+	"github.com/crossplane-contrib/provider-jet-scaleway/config/instance_server"
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/crossplane-contrib/provider-jet-scaleway/config/instance_server"
 )
 
 const (
@@ -49,9 +49,7 @@ func GetProvider() *tjconfig.Provider {
 		}))
 
 	for _, configure := range []func(provider *tjconfig.Provider){
-		// add custom config function
-		// null.Configure,
-		instance.Configure,
+		instance_server.Configure,
 	} {
 		configure(pc)
 	}
