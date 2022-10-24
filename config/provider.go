@@ -22,8 +22,7 @@ import (
 
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-
-	"github.com/crossplane-contrib/provider-jet-scaleway/config/null"
+	"github.com/crossplane-contrib/provider-jet-scaleway/config/instance_server"
 )
 
 const (
@@ -44,11 +43,15 @@ func GetProvider() *tjconfig.Provider {
 	}
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
-		tjconfig.WithDefaultResourceFn(defaultResourceFn))
+		tjconfig.WithDefaultResourceFn(defaultResourceFn),
+		tjconfig.WithIncludeList([]string{
+			"scaleway_instance_server$",
+		}))
 
 	for _, configure := range []func(provider *tjconfig.Provider){
-		// add custom config functions
-		null.Configure,
+		// add custom config function
+		// null.Configure,
+		instance.Configure,
 	} {
 		configure(pc)
 	}
