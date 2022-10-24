@@ -232,10 +232,24 @@ func (in *ServerObservation) DeepCopyInto(out *ServerObservation) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.PrivateNetwork != nil {
+		in, out := &in.PrivateNetwork, &out.PrivateNetwork
+		*out = make([]PrivateNetworkObservation, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
+	}
 	if in.PublicIP != nil {
 		in, out := &in.PublicIP, &out.PublicIP
 		*out = new(string)
 		**out = **in
+	}
+	if in.RootVolume != nil {
+		in, out := &in.RootVolume, &out.RootVolume
+		*out = make([]RootVolumeObservation, len(*in))
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
 	}
 }
 

@@ -84,7 +84,11 @@ type ServerObservation struct {
 
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
 
+	PrivateNetwork []PrivateNetworkObservation `json:"privateNetwork,omitempty" tf:"private_network,omitempty"`
+
 	PublicIP *string `json:"publicIp,omitempty" tf:"public_ip,omitempty"`
+
+	RootVolume []RootVolumeObservation `json:"rootVolume,omitempty" tf:"root_volume,omitempty"`
 }
 
 type ServerParameters struct {
